@@ -203,6 +203,31 @@ For this work the dataset has been used is Hansard record of Parliamentary docum
 In this section, the experiment to demonstrate the CCA-based multi-lingual text retrieval has been explained.
 \subsection{Word Embedding}
 \subsection{Canonical Correlation Analysis (CCA)}
+
+Canonical correlation analysis (CCA) is a method for exploring the relationships between two multivariate sets of variables (vectors) by making sense of cross-covariance matrices.
+\\\\
+{\bf Definition}\\
+Given two column vectors $\bf{{X} = (x_1, x_2,..., x_n)'}$ and  $\bf{{Y} = (y_1, y_2,..., y_n)'}$ of random variables with finite moments, one may define the cross-covariance ${\Sigma_{XY}} = cov({X},{Y})$ to be a {\bf n}x{\bf m} matrix whose (i,j) entry is the covariance $cov(x_i,y_j)$.\\
+In practice the covariance matrix is estimated based on the sampled data $\bf{X}$ and $\bf{Y}$.
+
+
+Canonical correlation seeks vectors ${a}$ and ${b}$ such that the random variables $\bf{a'X}$ and $\bf{b'Y}$ maximize the correlation coefficient ${\bf \rho}$.
+
+\begin{equation}
+		(a,b) = \arg \max_{(a,b)} {\rho}({a'X},{b'Y}).
+\end{equation}
+where,
+\begin{equation}	
+	\rho({a'X},{b'Y}) = \frac{a' \Sigma_{XY} b}{\sqrt{a'\Sigma_{XX}a}\sqrt{b'\Sigma_{YY}b}}	
+\end{equation}
+
+The random Variables $\bf{U_1 = a'X}$ and $\bf{V_1 = b'Y}$ are the first pair of canonical variables.
+
+In general, the $\bf{k^{th}}$ pair of canonical variables are the linear combinations $(\bf{U_k,V_k})$ that maximize the correlation coeeficient $\bf{\rho}(\bf{U_k,V_k})$ among all possible linear combinations and are uncorrelated with the previous $\bf{(k-1)}$ canonical variables.\\
+This procedure may be continued upto {\bf{min (m,n)}} times.
+
+Canonical correlation analysis finds practical importance in the areas of supervised learning, clustering, dimensionality reduction, reinforcement learning etc.
+
 \subsection{Experimental Set-up}
 \subsection{Results and Analysis}
 
