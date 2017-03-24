@@ -1,6 +1,8 @@
 \documentclass{article} % For LaTeX2e
 \usepackage{nips15submit_e,times}
 \usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{url}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
 
@@ -239,6 +241,16 @@ In general, the $\bf{k^{th}}$ pair of canonical variables are the linear combina
 This procedure may be continued upto {\bf{min (m,n)}} times.
 
 Canonical correlation analysis finds practical importance in the areas of supervised learning, clustering, dimensionality reduction, reinforcement learning etc.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale = 0.6]{Figures/cca.png}
+		\caption{Cross-lingual word vector projection using CCA	}
+		\label{fig:CCA_implementation}
+	\end{center}
+\end{figure}
+
+In our implementation of CCA we are considering two subspaces of the original space and reducing the dimensionality by projecting onto a common dimension using CCA.(Figure \ref{fig:CCA_implementation})
 
 
 \section{Future Work}
