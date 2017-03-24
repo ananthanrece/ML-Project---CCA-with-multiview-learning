@@ -202,6 +202,18 @@ For this work the dataset has been used is Hansard record of Parliamentary docum
 
 In this section, the experiment to demonstrate the CCA-based multi-lingual text retrieval has been explained.
 \subsection{Word Embedding}
+Vector space model is well known in information retrieval where each document is represented as a vector. The vector components represent weights or importance of each word in the document.
+
+Although the idea of using vector representation for words also has been around for some time, the interest in word embedding, techniques that map words to vectors, has been soaring recently. One driver for this has been Tomáš Mikolov’s Word2vec algorithm which uses a large amount of text to create high-dimensional (50 to 300 dimensional) representations of words capturing relationships between words unaided by external annotations. Such representation seems to capture many linguistic regularities. For example, it yields a vector approximating the representation for vec(‘Rome’) as a result of the vector operation vec(‘Paris’) – vec(‘France’) + vec(‘Italy’).
+
+The word2vec algorithm uses a fully connected Neural Network to generate vectors for words as shown below. The input layer contains as many nodes as there are unique words in the document. The output layer also has the same number of nodes as the input layer. The hidden layer has a linear activation function. The number of nodes in the hidden layer should be equal to dimension of the vector we want for each word.Thus, assuming that the vocabulary for learning word vectors consists of $V$ words and $N$ to be the dimension of word vectors, the input to hidden layer connections can be represented by matrix $WI$ of size $VxN$ with each row representing a vocabulary word. In same way, the connections from hidden layer to output layer can be described by matrix $WO$ of size $NxV$. In this case, each column of $WO$ matrix represents a word from the given vocabulary. The input to the network is encoded using “1-out of -V” representation meaning that only one input line is set to one and rest of the input lines are set to zero.
+
+$WI$ will be our word2vec matrix after the training is complete.
+
+\begin{figure}[H]
+\includegraphics[width=8cm, height=6cm]{word2vecNN.png}
+\end{figure}
+
 \subsection{Canonical Correlation Analysis (CCA)}
 
 Canonical correlation analysis (CCA) is a method for exploring the relationships between two multivariate sets of variables (vectors) by making sense of cross-covariance matrices.
